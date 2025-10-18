@@ -1,166 +1,47 @@
-/* style.css */
-
-/* Configurações Globais (Fontes e Cor de Fundo) */
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f4f7f9; /* Fundo suave */
-    color: #1f2937; /* Cor de texto padrão */
-}
-/* Estilização para Scrollbars finas e escuras (melhora a estética) */
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-::-webkit-scrollbar-thumb {
-    background-color: #9ca3af;
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  form div {
+    margin-bottom: 10px;
+  }
+  input[type="text"], input[type="number"] {
+    padding: 8px;
+    width: 200px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-}
-::-webkit-scrollbar-track {
-    background-color: #e5e7eb;
-}
-
-/* Estilos base para a tabela para garantir alinhamento (mantidos do CSS anterior) */
-#tabelaClientes td {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap; 
-    gap: 5px;
-    padding: 10px;
-}
-
-/* Estilo para o link que está dentro de uma TR com fundo escuro (avisado/vencido) */
-/* As cores base Tailwind foram usadas aqui, mas mantidas no CSS por ser um seletor complexo */
-.bg-blue-600 a, .bg-red-500 a {
-    color: white !important; /* Força cor branca */
-}
-
-/* Estilos dos Modais (mantidos com a estrutura do CSS original para animação e sobreposição) */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-.modal-content {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-    width: 95%;
-    max-width: 450px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    animation: slideUp 0.3s ease-out;
-}
-@keyframes slideUp {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-/* Ícone de Configurações (Aplicações de classe mantidas para transição) */
-.settings-icon {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 24px;
+  }
+  button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
-    background-color: #3b82f6; /* Tailwind blue-500 */
-    color: white;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    z-index: 999;
-    transition: all 0.2s ease-in-out;
-}
-.settings-icon:hover {
-    background-color: #2563eb; /* Tailwind blue-600 */
-    transform: scale(1.05);
-}
-
-/* NOTIFICATION BADGE STYLE (adaptado para o novo visual) */
-.notification-badge {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background-color: #ef4444; /* Tailwind red-500 */
-    color: white;
-    border-radius: 9999px; /* rounded-full */
-    padding: 3px 7px;
-    font-size: 0.75rem; /* text-xs */
-    min-width: 18px;
-    text-align: center;
-    line-height: 1;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-/* Estilos específicos de botão (classes dinâmicas no JS) */
-.btn-debito-segurar {
-    background-color: #fbbf24; /* yellow-400 */
-    color: #333;
-}
-.btn-debito-segurar:hover {
-    background-color: #f59e0b; /* yellow-500 */
-}
-.btn-renovar-data-atual {
-    background-color: #f97316; /* orange-600 */
-    color: white;
-}
-.btn-renovar-data-atual:hover {
-    background-color: #ea580c; /* orange-700 */
-}
-.modal-confirm-danger {
-    background-color: #dc2626; /* red-700 */
-    color: #fff;
-}
-.modal-confirm-danger:hover {
-    background-color: #b91c1c; /* red-800 */
-}
-.btn-dola {
-    background-color: #38a169; /* green-600 */
-    color: white;
-}
-.btn-dola:hover {
-    background-color: #2f855a;
-}
-.btn-dola-sent {
-    background-color: #6366f1; /* indigo-500 */
-    color: white;
-}
-.btn-dola-sent:hover {
-    background-color: #4f46e5;
-}
-
-/* Loading Overlay (manter para sobrepor modais) */
-.loading-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+  table {
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-}
-.spinner {
-    border: 8px solid #f3f3f3;
-    border-top: 8px solid #3b82f6;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 1s linear infinite;
-}
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  #messageArea {
+    margin-top: 15px;
+    font-weight: bold;
+    color: red; /* Estilo padrão para erro */
+  }
+  .success {
+    color: green !important;
+  }
+</style>
